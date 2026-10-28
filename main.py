@@ -18,5 +18,20 @@ def write_new_day(data):
         with open("water_db.json", "w", encoding="utf-8") as new_file:
             json.dump(file, new_file)
 
+
+def new_litre(given_time):
+    given_time = str(given_time)
+
+    with open("water_db.json", "r") as prev_file:
+        file = json.load(prev_file)
+
+    file[-1]["litres"] += 1
+    file[-1]["hour"].append(given_time)
+
+    with open("water_db.json", "w", encoding="utf-8") as new_file:
+        json.dump(file, new_file)
+
+
 data = {"date": str(curr_day), "litres": 0, "hour": []}
 write_new_day(data=data)
+new_litre(curr_time)
