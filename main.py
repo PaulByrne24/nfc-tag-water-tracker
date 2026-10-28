@@ -1,6 +1,6 @@
 import json
 import datetime as dt
-import time
+import flask
 
 def open_file():
     with open("water_db.json", "r") as prev_file:
@@ -38,3 +38,11 @@ def new_litre():
 def read_file():
     file = open_file()
     print(f"Today: {file[-1]["date"]} you drank {file[-1]["litres"]}L of water at these times: {file[-1]["hour"]}")
+
+app = flask.Flask(__name__)
+
+@app.route("/drink")
+def litre_drink():
+    write_new_day()
+    new_litre()
+    return read_file()
