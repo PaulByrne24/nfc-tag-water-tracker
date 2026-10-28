@@ -1,11 +1,18 @@
 import json
 import datetime as dt
 
-get_date = str(dt.date.today()) # grabs today's date and turns it to string, as json doesn't accept dataype "datetime" uses
+get_now = dt.datetime.now() # grabs today's date and time
+curr_day = get_now.date()
+curr_time = get_now.time().strftime("%H:%M:%S")
 
 def write_new_day(data):
-    with open("water_db.json", "w", encoding="utf-8") as file:
-        json.dump(data, file)
+    with open("water_db.json", "r") as prev_file:
+        file = json.load(prev_file)
 
-# data = {"date": get_date, "litres": 0, "hour": []}
-# write(data)
+    file.append(data)
+
+    with open("water_db.json", "w", encoding="utf-8") as new_file:
+        json.dump(file, new_file)
+
+data = {"date": str(curr_day), "litres": 0, "hour": []}
+write_new_day(data=data)
