@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --accent-green: #20b653;
+  --text: #171717;
+  --card-border: #050505;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 14px;
+  background: #fff;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.drink-card {
+  position: relative;
+  width: min(292px, 100%);
+  min-height: 418px;
+  margin: 0 auto;
+  padding: 28px 32px 24px;
+  border: 4px solid var(--card-border);
+  border-radius: 66px;
+  background: #fff;
+}
+
+.eyebrow {
+  margin: 0 0 8px 12px;
+  font-size: 13px;
+  line-height: 1.2;
+  color: #454545;
+}
+
+.date-value {
+  margin: 0 0 32px 1px;
+  color: var(--accent-green);
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.amount-section {
+  position: relative;
+  min-height: 94px;
+}
+
+.amount-section h1 {
+  margin: 0 0 0 8px;
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.amount-value {
+  margin: -3px 0 0;
+  color: var(--accent-green);
+  text-align: right;
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.amount-value span {
+  font-size: 54px;
+}
+
+.times-heading {
+  margin: 0 0 14px;
+  color: #454545;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.times-box {
+  width: 108px;
+  min-height: 178px;
+  padding: 20px 12px;
+  border: 4px solid var(--card-border);
+  border-radius: 27px;
+  text-align: center;
+}
+
+.times-box p {
+  margin: 0 0 5px;
+  color: var(--accent-green);
+  font-size: 13px;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.times-box .empty-state {
+  color: #777;
+  font-weight: 400;
+}
+
+/* Keep the card compact on narrow screens. */
+@media (max-width: 340px) {
+  .drink-card {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}
