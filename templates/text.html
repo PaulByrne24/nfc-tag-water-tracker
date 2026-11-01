@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily drinking summary</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <main class="drink-card" aria-label="Daily drinking summary">
+    <section class="date-section">
+      <p class="eyebrow">Today</p>
+      <p class="date-value">{{ display_date }}</p>
+    </section>
+
+    <section class="amount-section">
+      <h1>You drank</h1>
+      <p class="amount-value">{{ total_litres }} <span>L</span></p>
+    </section>
+
+    <section class="times-section">
+      <p class="times-heading">On these times:</p>
+      <div class="times-box">
+        {% for time in drinking_times %}
+          <p>{{ time }}</p>
+        {% else %}
+          <p class="empty-state">No drinks recorded</p>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+</body>
+</html>
